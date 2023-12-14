@@ -3,6 +3,7 @@ import Animation from "../components/Animation";
 import Footer from "../components/elements/Footer";
 import NavBar from "../components/NavBar";
 import HomePage from "../components/slides/HomePage";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Home() {
   return (
