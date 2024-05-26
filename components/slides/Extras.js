@@ -18,7 +18,9 @@ export default function Extras() {
   const [border, setBorder] = useState(false);
   const [background, setBackground] = useState(false);
   const [quoteTheme, setQuoteTheme] = useState("radical");
+  const [cquoteTheme, setcQuoteTheme] = useState("gruvbox");
   const [layout, setLayout] = useState("horizontal");
+  const [clayout, setcLayout] = useState("horizontal");
   const [color, setColor] = useState(0);
   const [icon, setIcon] = useState(0);
   function changeLayout() {
@@ -26,6 +28,13 @@ export default function Extras() {
       setLayout("vetical");
     } else {
       setLayout("horizontal");
+    }
+  }
+  function changecLayout() {
+    if (layout === "horizontal") {
+      setcLayout("vetical");
+    } else {
+      setcLayout("horizontal");
     }
   }
   function onNext() {
@@ -42,7 +51,7 @@ if (document.getElementById("cquotechk").checked === true) {
   extras =
     extras +
     `
-### ✍️Random Cyber Quote
+### 🧑‍💻Random Cyber Quote
 ![](${document.getElementById("cquote").getAttribute("src")})
 `;
 }
@@ -201,7 +210,7 @@ ${techbadges.join(" ").replaceAll("for-the-badge", badgeStyle)}
               <select
                 id="cquotetheme"
                 onChange={() =>
-                  setQuoteTheme(document.getElementById("quotetheme").value)
+                  setcQuoteTheme(document.getElementById("cquotetheme").value)
                 }
                 className="bg-transparent py-1 px-2 outline-none"
               >
@@ -213,13 +222,13 @@ ${techbadges.join(" ").replaceAll("for-the-badge", badgeStyle)}
                   );
                 })}
               </select>
-              <FilterButton title="Layout" onClick={() => changeLayout()} />
+              <FilterButton title="Layout" onClick={() => changecLayout()} />
             </div>
             <img
               className="m-2 select-none pointer-events-none"
               draggable="false"
               id="cquote"
-              src={`https://github-readme-cyber-quotes.vercel.app/api?type=${layout}&theme=${quoteTheme}`}
+              src={`https://github-readme-cyber-quotes.vercel.app/api?type=${clayout}&theme=${cquoteTheme}`}
               alt=""
             />
             <CheckBox id="cquotechk" title="Add Random Cyber Quotes" />
