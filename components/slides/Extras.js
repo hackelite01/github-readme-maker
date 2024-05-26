@@ -37,6 +37,16 @@ export default function Extras() {
 ![](${document.getElementById("trophy").getAttribute("src")})
 `;
     }
+    // Cyber Quotes Part Start
+if (document.getElementById("cquotechk").checked === true) {
+  extras =
+    extras +
+    `
+### ✍️Random Cyber Quote
+![](${document.getElementById("cquote").getAttribute("src")})
+`;
+}
+// Cyber Quotes Part End
     if (document.getElementById("quotechk").checked === true) {
       extras =
         extras +
@@ -185,6 +195,35 @@ ${techbadges.join(" ").replaceAll("for-the-badge", badgeStyle)}
               title="Add Visitors Count"
             />
             {/* Options */}
+                {/*Cyber Quotes Part Start*/}
+            <div className="flex flex-wrap justify-center items-center mt-4 my-2">
+              Theme:
+              <select
+                id="cquotetheme"
+                onChange={() =>
+                  setQuoteTheme(document.getElementById("quotetheme").value)
+                }
+                className="bg-transparent py-1 px-2 outline-none"
+              >
+                {quoteThemes.map((item) => {
+                  return (
+                    <option key={item} value={item} className="bg-zinc-900">
+                      {item}
+                    </option>
+                  );
+                })}
+              </select>
+              <FilterButton title="Layout" onClick={() => changeLayout()} />
+            </div>
+            <img
+              className="m-2 select-none pointer-events-none"
+              draggable="false"
+              id="cquote"
+              src={`https://github-readme-cyber-quotes.vercel.app/api?type=${layout}&theme=${quoteTheme}`}
+              alt=""
+            />
+            <CheckBox id="cquotechk" title="Add Random Cyber Quotes" />
+            {/*Cyber Quotes Part End*/}
             <div className="flex flex-wrap justify-center items-center mt-4 my-2">
               Theme:
               <select
