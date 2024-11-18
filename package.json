@@ -10,7 +10,7 @@
   "dependencies": {
     "@heroicons/react": "^1.0.5",
     "@vercel/speed-insights": "^1.0.11",
-    "firebase": "^9.6.4",
+    "firebase": "^10.9.0",
     "markdown-it": "^12.3.2",
     "next": "14.1.1",
     "react": "18.2.0",
